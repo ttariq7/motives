@@ -17,7 +17,25 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('MotivesCtrl', function($scope) {
+.controller('MotivesCtrl', function($scope, MotivesService) {
+
+  $scope.addMotive = function () {
+
+  	var motive = {
+  		title:"Tenpin Bowling",
+  		foursquareId:"",
+  		location:"",
+  	}
+
+	MotivesService.createMotive({
+	  success: function(response) {
+	  	console.log(response);
+	  },
+	  error: function(error) {
+	  	console.log(error);
+	  }
+	});    
+  }
 
 })
 

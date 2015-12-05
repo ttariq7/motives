@@ -92,4 +92,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/motives');
 
+})
+
+.run(function ($state, $rootScope) {
+    Parse.initialize('7lpDcK5RlK6HBFkemlOZKNkCz2zJNEeZ2tkzYylF', 'QDLE6tOL9Xd4vtunelogxOPqxb3crESVxeDGD2Fe');
+
 });
