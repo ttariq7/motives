@@ -3,7 +3,9 @@
     <button class="button button-icon ion-ios-plus-outline" ng-click="addMotive()">
     </button>
   </ion-nav-buttons>
-  <ion-content class="padding">
-  
+  <ion-content class="">
+  	<ion-item ng-repeat="motive in motives" ui-sref="tab.motives-detail({motivesId:motive.id})">
+  	 {{ motive.attributes.title }}
+  	</ion-item>
   </ion-content>
 </ion-view>

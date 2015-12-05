@@ -1,14 +1,40 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+<ion-view view-title="{{motive.attributes.title}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="toggleEdit()">
+      {{ editMode == true ? 'Save':'Edit'}}
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="">
+    <ion-item ng-if="editMode != true">
+      {{ motive.attributes.title }}
+    </ion-item>
+
+    <label class="item item-input" ng-if="editMode == true">
+      <input type="text" ng-model="motiveData.title" placeholder="Motive name">
+    </label>
+
+    <ion-item ng-if="editMode != true && motiveData.description">
+      {{ motive.attributes.description }}
+    </ion-item>
+
+    <label class="item item-input" ng-if="editMode == true">
+      <textarea type="text" ng-model="motiveData.description" placeholder="Motive description"></textarea>
+    </label>
+
+
+    <ion-item ng-if="editMode != true && motiveData.date">
+      {{ motive.attributes.date }}
+    </ion-item>
+
+    <label class="item item-input" ng-if="editMode == true">
+      <input type="date" ng-model="motiveData.date" placeholder="Date">
+    </label>
+
+    <br>
+    <ion-item class="item-assertive center-text" ng-if="editMode == true" ng-click="deleteMotive()">
+      Delete
+    </ion-item>
+
+
   </ion-content>
 </ion-view>
