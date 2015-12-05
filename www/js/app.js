@@ -35,51 +35,61 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/tabs.html',
+    controller: 'MainCtrl'
   })
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.discover', {
+    url: '/discover',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-discover': {
+        templateUrl: 'templates/tab-discover.html',
+        controller: 'DiscoverCtrl'
       }
     }
   })
-
-  .state('tab.chats', {
-      url: '/chats',
+    .state('tab.discover-detail', {
+      url: '/discover/:placeId',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-discover': {
+          templateUrl: 'templates/discover-detail.html',
+          controller: 'DiscoverDetailCtrl'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.motives', {
+      url: '/motives',
+      views: {
+        'tab-motives': {
+          templateUrl: 'templates/tab-motives.html',
+          controller: 'MotivesCtrl'
+        }
+      }
+    })
+    .state('tab.motives-detail', {
+      url: '/motives/:motivesId',
+      views: {
+        'tab-motives': {
+          templateUrl: 'templates/motives-detail.html',
+          controller: 'MotivesDetailCtrl'
+        }
+      }
+    })
+
+  .state('tab.profile', {
+    url: '/profile',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-profile': {
+        templateUrl: 'templates/tab-profile.html',
+        controller: 'ProfileCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/motives');
 
 });
