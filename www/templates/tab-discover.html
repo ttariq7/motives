@@ -1,9 +1,25 @@
 <ion-view view-title="Discover">
   <ion-content>
     <ion-list>
-    	<ion-item>
+<!--     	<ion-item>
     		Ten Pin Bowling
+    	</ion-item> -->
+
+
+<div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input ng-model="search" type="search" placeholder="Search things to do">
+  </label>
+  <button ng-click="doSearch(search)" class="button button-clear">
+    Search
+  </button>
+</div>
+    	<ion-item ng-repeat="venue in venues">
+    		{{ venue.name}}{{", "}}<span class="positive">{{venue.location.city}}</span>
+    		<ion-option-button class="button-positive">Share</ion-option-button>
     	</ion-item>
+
     </ion-list>
   </ion-content>
 </ion-view>
